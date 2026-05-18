@@ -1,0 +1,11 @@
+﻿global using UniversityApp.BLL.Interfaces;
+global using UniversityApp.BLL.Repository;
+global using UniversityApp.BLL.Services;
+global using UniversityApp.CORE.Entities;
+global using UniversityApp.CORE.UnitOfWork;
+global using UniversityApp.DAL.Context;
+global using UniversityApp.DAL.Repository;
+global using UniversityApp.DAL.UnitOfWork;
+global using UniversityAppPresentation.AppUI;
+global using UniversityAppPresentation.UniversityPresent;
+global using UniversityOrchestrationUI.UniversityPresent;

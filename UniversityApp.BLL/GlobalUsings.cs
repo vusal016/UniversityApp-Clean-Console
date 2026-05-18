@@ -1,0 +1,10 @@
+﻿global using UniversityApp.CORE.Entities.Common;
+global using UniversityApp.CORE.Enums;  
+global using UniversityApp.BLL.Dtos;
+global using UniversityApp.CORE.Entities;
+global using UniversityApp.BLL.Interfaces;
+global using UniversityApp.BLL.Repository;
+global using UniversityApp.CORE.UnitOfWork;
+global  using UniversityApp.BLL.Profile;
+global using UniversityApp.BLL.Exceptions;
+global using UniversityApp.BLL.Profiles;

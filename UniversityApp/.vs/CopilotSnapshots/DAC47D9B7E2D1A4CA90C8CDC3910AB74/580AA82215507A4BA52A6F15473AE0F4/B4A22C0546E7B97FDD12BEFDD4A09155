@@ -1,0 +1,12 @@
+﻿using UniversityApp.CompositionRoot;
+
+namespace UniversityApp
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            AppBuilder.Build();
+        }
+    }
+}

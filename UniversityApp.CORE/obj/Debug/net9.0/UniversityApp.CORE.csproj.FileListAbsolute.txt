@@ -1,0 +1,11 @@
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityApp.CORE\bin\Debug\net9.0\UniversityApp.CORE.deps.json
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityApp.CORE\bin\Debug\net9.0\UniversityApp.CORE.dll
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityApp.CORE\bin\Debug\net9.0\UniversityApp.CORE.pdb
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityApp.CORE\obj\Debug\net9.0\UniversityApp.CORE.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityApp.CORE\obj\Debug\net9.0\UniversityApp.CORE.AssemblyInfoInputs.cache
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityApp.CORE\obj\Debug\net9.0\UniversityApp.CORE.AssemblyInfo.cs
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityApp.CORE\obj\Debug\net9.0\UniversityApp.CORE.csproj.CoreCompileInputs.cache
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityApp.CORE\obj\Debug\net9.0\UniversityApp.CORE.dll
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityApp.CORE\obj\Debug\net9.0\refint\UniversityApp.CORE.dll
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityApp.CORE\obj\Debug\net9.0\UniversityApp.CORE.pdb
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityApp.CORE\obj\Debug\net9.0\ref\UniversityApp.CORE.dll

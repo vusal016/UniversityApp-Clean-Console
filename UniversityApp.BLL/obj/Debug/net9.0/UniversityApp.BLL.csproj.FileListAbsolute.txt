@@ -1,0 +1,15 @@
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityApp.BLL\bin\Debug\net9.0\UniversityApp.BLL.deps.json
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityApp.BLL\bin\Debug\net9.0\UniversityApp.BLL.dll
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityApp.BLL\bin\Debug\net9.0\UniversityApp.BLL.pdb
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityApp.BLL\bin\Debug\net9.0\UniversityApp.CORE.dll
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityApp.BLL\bin\Debug\net9.0\UniversityApp.CORE.pdb
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityApp.BLL\obj\Debug\net9.0\UniversityApp.BLL.csproj.AssemblyReference.cache
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityApp.BLL\obj\Debug\net9.0\UniversityApp.BLL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityApp.BLL\obj\Debug\net9.0\UniversityApp.BLL.AssemblyInfoInputs.cache
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityApp.BLL\obj\Debug\net9.0\UniversityApp.BLL.AssemblyInfo.cs
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityApp.BLL\obj\Debug\net9.0\UniversityApp.BLL.csproj.CoreCompileInputs.cache
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityApp.BLL\obj\Debug\net9.0\Universi.16FCFA96.Up2Date
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityApp.BLL\obj\Debug\net9.0\UniversityApp.BLL.dll
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityApp.BLL\obj\Debug\net9.0\refint\UniversityApp.BLL.dll
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityApp.BLL\obj\Debug\net9.0\UniversityApp.BLL.pdb
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityApp.BLL\obj\Debug\net9.0\ref\UniversityApp.BLL.dll

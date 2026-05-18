@@ -1,0 +1,17 @@
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityApp.DAL\bin\Debug\net9.0\UniversityApp.DAL.deps.json
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityApp.DAL\bin\Debug\net9.0\UniversityApp.DAL.runtimeconfig.json
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityApp.DAL\bin\Debug\net9.0\UniversityApp.DAL.dll
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityApp.DAL\bin\Debug\net9.0\UniversityApp.DAL.pdb
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityApp.DAL\bin\Debug\net9.0\UniversityApp.CORE.dll
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityApp.DAL\bin\Debug\net9.0\UniversityApp.CORE.pdb
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityApp.DAL\obj\Debug\net9.0\UniversityApp.DAL.csproj.AssemblyReference.cache
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityApp.DAL\obj\Debug\net9.0\UniversityApp.DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityApp.DAL\obj\Debug\net9.0\UniversityApp.DAL.AssemblyInfoInputs.cache
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityApp.DAL\obj\Debug\net9.0\UniversityApp.DAL.AssemblyInfo.cs
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityApp.DAL\obj\Debug\net9.0\UniversityApp.DAL.csproj.CoreCompileInputs.cache
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityApp.DAL\obj\Debug\net9.0\Universi.DD1DBE4C.Up2Date
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityApp.DAL\obj\Debug\net9.0\UniversityApp.DAL.dll
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityApp.DAL\obj\Debug\net9.0\refint\UniversityApp.DAL.dll
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityApp.DAL\obj\Debug\net9.0\UniversityApp.DAL.pdb
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityApp.DAL\obj\Debug\net9.0\UniversityApp.DAL.genruntimeconfig.cache
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityApp.DAL\obj\Debug\net9.0\ref\UniversityApp.DAL.dll

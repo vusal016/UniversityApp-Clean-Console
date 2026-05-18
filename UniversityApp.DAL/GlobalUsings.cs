@@ -1,0 +1,9 @@
+﻿global using Microsoft.EntityFrameworkCore;
+global using UniversityApp.CORE.Entities;
+global using Microsoft.EntityFrameworkCore.Metadata.Builders;
+global using UniversityApp.BLL.Repository;
+global using UniversityApp.CORE.Entities.Common;
+global using UniversityApp.DAL.Context;
+global using UniversityApp.CORE.UnitOfWork;
+global using Microsoft.EntityFrameworkCore.Storage;
+global using System.Linq.Expressions;

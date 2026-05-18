@@ -1,0 +1,17 @@
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityOrchestrationUI\obj\Debug\net9.0\UniversityOrchestrationUI.csproj.AssemblyReference.cache
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityOrchestrationUI\obj\Debug\net9.0\UniversityOrchestrationUI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityOrchestrationUI\obj\Debug\net9.0\UniversityOrchestrationUI.AssemblyInfoInputs.cache
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityOrchestrationUI\obj\Debug\net9.0\UniversityOrchestrationUI.AssemblyInfo.cs
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityOrchestrationUI\obj\Debug\net9.0\UniversityOrchestrationUI.csproj.CoreCompileInputs.cache
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityOrchestrationUI\bin\Debug\net9.0\UniversityOrchestrationUI.deps.json
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityOrchestrationUI\bin\Debug\net9.0\UniversityOrchestrationUI.dll
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityOrchestrationUI\bin\Debug\net9.0\UniversityOrchestrationUI.pdb
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityOrchestrationUI\bin\Debug\net9.0\UniversityApp.BLL.dll
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityOrchestrationUI\bin\Debug\net9.0\UniversityApp.CORE.dll
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityOrchestrationUI\bin\Debug\net9.0\UniversityApp.BLL.pdb
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityOrchestrationUI\bin\Debug\net9.0\UniversityApp.CORE.pdb
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityOrchestrationUI\obj\Debug\net9.0\Universi.B1DC2854.Up2Date
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityOrchestrationUI\obj\Debug\net9.0\UniversityOrchestrationUI.dll
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityOrchestrationUI\obj\Debug\net9.0\refint\UniversityOrchestrationUI.dll
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityOrchestrationUI\obj\Debug\net9.0\UniversityOrchestrationUI.pdb
+C:\Users\User\OneDrive\Desktop\tapsiriqlar\UniversityOrchestrationUI\obj\Debug\net9.0\ref\UniversityOrchestrationUI.dll

@@ -1,0 +1,210 @@
+﻿namespace UniversityAppPresentation.UniversityPresent
+{
+    public class UniversityUI(IUniversityService universityService)
+    {
+        public async Task UniversityMenuAsync()
+        {
+            while (true)
+            {
+                try
+                {
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.WriteLine("╔════════════════════════════════╗");
+                    Console.WriteLine("║        UNIVERSITY MENU         ║");
+                    Console.WriteLine("╠════════════════════════════════╣");
+                    Console.WriteLine("║ 1-Add new University           ║");
+                    Console.WriteLine("║ 2-Get University by Id         ║");
+                    Console.WriteLine("║ 3-Get All Universities         ║");
+                    Console.WriteLine("║ 4-Edit University              ║");
+                    Console.WriteLine("║ 5-Search University with Name  ║");
+                    Console.WriteLine("║ 6-Delete University            ║");
+                    Console.WriteLine("║ 0-Back to Main Menu            ║");
+                    Console.WriteLine("╚════════════════════════════════╝");
+                    Console.ResetColor();
+
+                    int? input = int.TryParse(Console.ReadLine(), out var result) ? result : null;
+                    if (input == null)
+                        continue;
+                    if (input == 0) break;
+
+                    switch (input)
+                    {
+                        case 1:
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.WriteLine("Add University Name");
+                            Console.ResetColor();
+
+                            string Name = Console.ReadLine();
+
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.WriteLine("Choose type of University");
+                            Console.ResetColor();
+
+                            string type = Console.ReadLine();
+
+                            if (!Enum.TryParse(type, true, out UniversityType universityType))
+                                throw new InvalidOperationException("Type chosing is failed");
+
+                            UniversityCreateDto universityCreate = new UniversityCreateDto(Name, universityType);
+
+                            await universityService.AddUniversityAsync(universityCreate);
+
+                            Console.ForegroundColor = ConsoleColor.Green;
+                            Console.WriteLine("Successfully added");
+                            Console.ResetColor();
+                            break;
+
+                        case 2:
+                            var getList = await universityService.GetAllUniversitiesAsync();
+
+                            if (getList.Count == 0)
+                            {
+                                Console.WriteLine("No universities found");
+                                break;
+                            }
+
+                            for (int i = 0; i < getList.Count; i++)
+                            {
+                                Console.WriteLine($"{i + 1}-{getList[i].Name}");
+                            }
+
+                            Console.WriteLine("Choose University number to get");
+
+                            var getInputId = Console.ReadLine();
+
+                            if (!int.TryParse(getInputId, out var getIndex))
+                            {
+                                Console.WriteLine("Invalid input");
+                                break;
+                            }
+
+                            if (getIndex < 1 || getIndex > getList.Count)
+                            {
+                                Console.WriteLine("Out of range");
+                                break;
+                            }
+
+                            var getSelected = getList[getIndex - 1];
+
+                            var university = await universityService.GetUniversityByIdAsyncAsync(getSelected.Id);
+
+                            Console.ForegroundColor = ConsoleColor.Green;
+                            Console.WriteLine($"University Name:{university.Name},University Type:{university.UniversityType}");
+                            Console.ResetColor();
+                            break;
+
+                        case 3:
+                            var uniList = await universityService.GetAllUniversitiesAsync();
+
+                            for (int i = 0; i < uniList.Count; i++)
+                            {
+                                Console.WriteLine($"University Name:{uniList[i].Name},UniversityType:{uniList[i].UniversityType}");
+                            }
+                            break;
+
+                        case 4:
+                            var universities = await universityService.GetAllUniversitiesAsync();
+
+                            for (int i = 0; i < universities.Count; i++)
+                            {
+                                Console.WriteLine($"{i + 1}-{universities[i].Name},{universities[i].UniversityType}");
+                            }
+
+                            Console.WriteLine("Choose University number for Update");
+
+                            var input2 = Console.ReadLine();
+
+                            if (!int.TryParse(input2, out var uni))
+                            {
+                                Console.WriteLine("Invalid input");
+                                break;
+                            }
+
+                            if (uni < 1 || uni > universities.Count)
+                            {
+                                Console.WriteLine("Out of range");
+                                break;
+                            }
+
+                            var selectedUni = universities[uni - 1];
+
+                            Console.WriteLine($"{selectedUni.Name},{selectedUni.UniversityType}");
+
+                            Console.WriteLine("Change the Name of University");
+                            var name = Console.ReadLine();
+
+                            Console.WriteLine("Change the Type of University ");
+                            var Unitype = Console.ReadLine();
+
+                            if (!Enum.TryParse(Unitype, true, out UniversityType enType))
+                                throw new InvalidOperationException("This type format is wrong");
+
+                            var uniUpdate = new UniversityUpdateDto(selectedUni.Id, name, enType);
+
+                            var UniId = selectedUni.Id;
+
+                            await universityService.UpdateUniversityAsync(UniId, uniUpdate);
+
+                            Console.ForegroundColor = ConsoleColor.Green;
+                            Console.WriteLine("Successfully updated");
+                            Console.ResetColor();
+                            break;
+
+                        case 5:
+                            Console.WriteLine("Search for University");
+
+                            var search = Console.ReadLine();
+
+                            await universityService.SearchUniversityAsync(search);
+                            break;
+
+                        case 6:
+                            var UniDeletList = await universityService.GetAllUniversitiesAsync();
+
+                            for (int i = 0; i < UniDeletList.Count; i++)
+                            {
+                                Console.WriteLine($"{i + 1}-{UniDeletList[i].Name}");
+                            }
+
+                            Console.WriteLine("Choose University number for Delete");
+
+                            var entDel = Console.ReadLine();
+
+                            if (!int.TryParse(entDel, out var deletU))
+                            {
+                                Console.WriteLine("Invalid input");
+                                break;
+                            }
+
+                            if (deletU < 1 || deletU > UniDeletList.Count)
+                            {
+                                Console.WriteLine("Out of range");
+                                break;
+                            }
+
+                            var DeletUniversity = UniDeletList[deletU - 1];
+
+                            var deletId = DeletUniversity.Id;
+
+                            await universityService.DeleteUniversityAsync(deletId);
+
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("Successfully deleted");
+                            Console.ResetColor();
+                            break;
+
+                        default:
+                            Console.WriteLine("Invalid option");
+                            break;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine($"Error: {ex.Message}");
+                    Console.ResetColor();
+                }
+            }
+        }
+    }
+}

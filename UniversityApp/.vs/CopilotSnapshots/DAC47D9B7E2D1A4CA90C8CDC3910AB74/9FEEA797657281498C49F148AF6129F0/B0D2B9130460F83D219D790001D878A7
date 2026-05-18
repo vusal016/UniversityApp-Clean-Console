@@ -1,0 +1,54 @@
+﻿namespace UniversityOrchestrationUI.UniversityPresent
+{
+    public class StudentUI(IStudentService studentService)
+    {
+        public async Task StudentMenuAsync()
+        {
+            while (true)
+            {
+                try
+                {
+                    Console.WriteLine("STUDENT MENU");
+                    Console.WriteLine("1-Add new Student");
+                    Console.WriteLine("2-Get Student by Id");
+                    Console.WriteLine("3-Get All Students");
+                    Console.WriteLine("4-Edit Student");
+                    Console.WriteLine("5-Delete Student");
+                    Console.WriteLine("0-Back to Main Menu");
+
+                    int? input = int.TryParse(Console.ReadLine(), out var result) ? result : null;
+                    if (input == null)
+                        continue;
+                    if (input == 0) break;
+                    switch (input)
+                    {
+                        case 1:
+                            Console.WriteLine("Add Student Name");
+                            string name = Console.ReadLine();
+                            Console.WriteLine("Student operations completed");
+                            break;
+                        case 2:
+                            Console.WriteLine("Get Student by Id");
+                            break;
+                        case 3:
+                            Console.WriteLine("Get All Students");
+                            break;
+                        case 4:
+                            Console.WriteLine("Edit Student");
+                            break;
+                        case 5:
+                            Console.WriteLine("Delete Student");
+                            break;
+                        default:
+                            Console.WriteLine("Invalid Operation");
+                            break;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+        }
+    }
+}

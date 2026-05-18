@@ -1,0 +1,42 @@
+﻿namespace UniversityApp.UniversityUI.AppUI
+{
+    public sealed class App(UniversityUI universityUI, FacultyUI facultyUI, StudentUI studentUI)
+    {
+        public async Task RunAsync()
+        {
+            while (true)
+            {
+                Console.WriteLine("\n╔══════════════════════════════════════╗");
+                Console.WriteLine("║        MAIN MENU - UNIVERSITY APP    ║");
+                Console.WriteLine("╠══════════════════════════════════════╣");
+                Console.WriteLine("║ 1 - University Management            ║");
+                Console.WriteLine("║ 2 - Faculty Management               ║");
+                Console.WriteLine("║ 3 - Student Management               ║");
+                Console.WriteLine("║ 0 - Exit                             ║");
+                Console.WriteLine("╚══════════════════════════════════════╝");
+                Console.Write("Select option: ");
+
+                var input = Console.ReadLine();
+
+                switch (input)
+                {
+                    case "1":
+                        await universityUI.UniversityMenuAsync();
+                        break;
+                    case "2":
+                        await facultyUI.RunAsync();
+                        break;
+                    case "3":
+                        await studentUI.RunAsync();
+                        break;
+                    case "0":
+                        Console.WriteLine("Goodbye!");
+                        return;
+                    default:
+                        Console.WriteLine("Invalid option. Please try again.");
+                        break;
+                }
+            }
+        }
+    }
+}

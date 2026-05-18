@@ -1,0 +1,22 @@
+﻿public static class AppBuilder
+namespace Bootstrapper
+{
+    public static class AppBuilder
+    {
+        public static App Build()
+        {
+            var dbContext = new UniversityDbContext();
+            IRepository<University> UniversityRepo = new Repository<University>(dbContext);
+            IRepository<Faculty> FacultyRepo = new Repository<Faculty>(dbContext);
+            IRepository<Student> StudentRepo = new Repository<Student>(dbContext);
+            IUnitOfWork unitOfWork = new UnitOfWork(dbContext,UniversityRepo,FacultyRepo,StudentRepo);
+            IFacultyService facultyService = new FacultyService(FacultyRepo, unitOfWork);
+            IUniversityService universityService = new UniversityService(UniversityRepo, unitOfWork);
+            IStudentService studentService = new StudentService(StudentRepo, unitOfWork);
+            UniversityUI universityUI = new UniversityUI(universityService);
+            FacultyUI facultyUI = new FacultyUI(facultyService);
+            StudentUI studentUI = new StudentUI(studentService);
+            return new App(universityUI, facultyUI, studentUI);
+        }
+    }
+}

@@ -1,0 +1,53 @@
+﻿namespace UniversityAppPresentation.AppUI;
+
+public sealed class App
+{
+    private readonly UniversityUI _universityUI;
+    private readonly FacultyUi _facultyUI;
+    private readonly StudentUI _studentUI;
+
+    public App(
+        UniversityUI universityUI,
+        FacultyUi facultyUI,
+        StudentUI studentUI)
+    {
+        _universityUI = universityUI;
+        _facultyUI = facultyUI;
+        _studentUI = studentUI;
+    }
+
+    public async Task RunAsync()
+    {
+        while (true)
+        {
+            Console.WriteLine("╔════════════════════════════════╗");
+            Console.WriteLine("║        MAIN MENU               ║");
+            Console.WriteLine("╠════════════════════════════════╣");
+            Console.WriteLine("║ 1 - University UI              ║");
+            Console.WriteLine("║ 2 - Faculty UI                 ║");
+            Console.WriteLine("║ 3 - Student UI                 ║");
+            Console.WriteLine("║ 0 - Exit                       ║");
+            Console.WriteLine("╚════════════════════════════════╝");
+
+            var input = Console.ReadLine();
+
+            switch (input)
+            {
+                case "1":
+                    await _universityUI.UniversityMenuAsync();
+                    break;
+                case "2":
+                    await _facultyUI.FacultyMenuAsync();
+                    break;
+                case "3":
+                    await _studentUI.StudentMenuAsync();
+                    break;
+                case "0":
+                    return;
+                default:
+                    Console.WriteLine("Invalid option.");
+                    break;
+            }
+        }
+    }
+}

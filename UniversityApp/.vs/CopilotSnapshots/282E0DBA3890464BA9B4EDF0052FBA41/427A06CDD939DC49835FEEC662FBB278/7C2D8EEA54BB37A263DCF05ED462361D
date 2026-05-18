@@ -1,0 +1,81 @@
+﻿namespace UniversityApp.UniversityUI;
+
+using UniversityApp.BLL.Interfaces;
+using UniversityApp.CORE.Enums;
+using UniversityApp.BLL.Dtos;
+
+public class UniversityUI(IUniversityService universityService)
+{
+    public async Task UniversityMenuAsync()
+    {
+        while (true)
+        {
+            try
+            {
+                Console.WriteLine("UNIVERSITY MENU");
+                Console.WriteLine("1-Add new University");
+                Console.WriteLine("2-Get University by Id");
+                Console.WriteLine("3-Get All Universities");
+                Console.WriteLine("4-Edit University");
+                Console.WriteLine("5-Search University with Name");
+                Console.WriteLine("6-Delete University");
+                Console.WriteLine("0-Back to Main Menu");
+
+                int? input = int.TryParse(Console.ReadLine(), out var result) ? result : null;
+                if (input == null)
+                    continue;
+                if (input == 0) break;
+                switch (input)
+                {
+                    case 1:
+                        Console.WriteLine("Add University Name");
+                        string Name = Console.ReadLine();
+                        Console.WriteLine("Choose type of University");
+                        string type = Console.ReadLine();
+                        if (!Enum.TryParse(type, out UniversityType universityType))
+                            throw new InvalidOperationException("Type chosing is failed");
+                        UniversityCreateDto universityCreate = new UniversityCreateDto(Name, universityType);
+                        await universityService.AddUniversityAsync(universityCreate);
+                        Console.WriteLine("Successfully added");
+                        break;
+                    case 2:
+                        Console.WriteLine("Enter a Id number for getting University");
+                        var list = await universityService.GetAllUniversitiesAsync();
+                        for (int i = 0; i < list.Count; i++)
+                        {
+                            Console.WriteLine($"{i + 1}-{list[i].Name}");
+                        }
+                        var inputId = Console.ReadLine();
+                        if (!int.TryParse(inputId, out var index))
+                        {
+                            Console.WriteLine("Invalid input");
+                            break;
+                        }
+                        if (index < 1 || index > list.Count)
+                        {
+                            Console.WriteLine("Out of range");
+                            break;
+                        }
+                        var selected = list[index - 1];
+                        var university = await universityService.GetUniversityByIdAsyncAsync(selected.Id);
+                        Console.WriteLine($"University Name:{university.Name},University Type:{university.UniversityType}");
+                        break;
+                    case 3:
+                        var uniList = await universityService.GetAllUniversitiesAsync();
+                        for (int i = 0; i < uniList.Count; i++)
+                        {
+                            Console.WriteLine($"University Name:{uniList[i].Name},UniversityType:{uniList[i].UniversityType}");
+                        }
+                        break;
+                    default:
+                        Console.WriteLine("Invalid option");
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+        }
+    }
+}

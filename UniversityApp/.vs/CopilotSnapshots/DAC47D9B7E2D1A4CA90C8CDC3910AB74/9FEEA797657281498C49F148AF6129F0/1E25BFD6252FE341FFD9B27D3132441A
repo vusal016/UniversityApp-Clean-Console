@@ -1,0 +1,145 @@
+﻿namespace UniversityOrchestrationUI.UniversityPresent
+{
+    public class FacultyUi(IFacultyService facultyService)
+    {
+        public async Task FacultyMenuAsync()
+        {
+            while (true)
+            {
+                try
+                {
+                    Console.WriteLine("╔════════════════════════════════╗");
+                    Console.WriteLine("║      FACULTY MENU              ║");
+                    Console.WriteLine("╠════════════════════════════════╣");
+                    Console.WriteLine("║ 1-Add new Faculty              ║");
+                    Console.WriteLine("║ 2-Get Faculty by Id            ║");
+                    Console.WriteLine("║ 3-Get All Faculties            ║");
+                    Console.WriteLine("║ 4-Edit Faculty                 ║");
+                    Console.WriteLine("║ 5-Delete Faculty               ║");
+                    Console.WriteLine("║ 0-Back to Main Menu            ║");
+                    Console.WriteLine("╚════════════════════════════════╝");
+
+                    int? input = int.TryParse(Console.ReadLine(), out var result) ? result : null;
+                    if (input == null)
+                        continue;
+                    if (input == 0) break;
+                    switch (input)
+                    {
+                        case 1:
+                            Console.WriteLine("Enter Faculty Name");
+                            string name = Console.ReadLine();
+                            Console.WriteLine("Enter Dean Name");
+                            string deanName = Console.ReadLine();
+                            Console.WriteLine("Choose Faculty Type");
+                            string type = Console.ReadLine();
+                            if (!Enum.TryParse(type, out FacultyType facultyType))
+                                throw new InvalidOperationException("Faculty type choosing is failed");
+                            Console.WriteLine("Enter University ID");
+                            if (!Guid.TryParse(Console.ReadLine(), out var universityId))
+                            {
+                                Console.WriteLine("Invalid University ID format");
+                                break;
+                            }
+                            FacultyCreateDto facultyCreate = new FacultyCreateDto(name, deanName, facultyType, universityId);
+                            await facultyService.AddFacultyAsync(facultyCreate);
+                            Console.WriteLine("Faculty successfully added");
+                            break;
+                        case 2:
+                            Console.WriteLine("Enter Faculty ID");
+                            if (!Guid.TryParse(Console.ReadLine(), out var facultyId))
+                            {
+                                Console.WriteLine("Invalid Faculty ID format");
+                                break;
+                            }
+                            var faculty = await facultyService.GetFacultyByIdAsync(facultyId);
+                            Console.WriteLine($"Faculty Name: {faculty.Name}, Dean Name: {faculty.DeanName}, Type: {faculty.FacultyType}");
+                            break;
+                        case 3:
+                            var facultyList = await facultyService.GetAllFacultiesAsync();
+                            if (facultyList.Count == 0)
+                            {
+                                Console.WriteLine("No faculties found");
+                                break;
+                            }
+                            for (int i = 0; i < facultyList.Count; i++)
+                            {
+                                Console.WriteLine($"{i + 1}-Name: {facultyList[i].Name}, Dean: {facultyList[i].DeanName}, Type: {facultyList[i].FacultyType}");
+                            }
+                            break;
+                        case 4:
+                            var faculties = await facultyService.GetAllFacultiesAsync();
+                            if (faculties.Count == 0)
+                            {
+                                Console.WriteLine("No faculties found");
+                                break;
+                            }
+                            for (int i = 0; i < faculties.Count; i++)
+                            {
+                                Console.WriteLine($"{i + 1}-{faculties[i].Name},{faculties[i].DeanName}");
+                            }
+                            Console.WriteLine("Choose Faculty number for Update");
+                            var input2 = Console.ReadLine();
+                            if (!int.TryParse(input2, out var fac))
+                            {
+                                Console.WriteLine("Invalid input");
+                                break;
+                            }
+                            if (fac < 1 || fac > faculties.Count)
+                            {
+                                Console.WriteLine("Out of range");
+                                break;
+                            }
+                            var selectedFaculty = faculties[fac - 1];
+                            Console.WriteLine($"{selectedFaculty.Name},{selectedFaculty.DeanName}");
+                            Console.WriteLine("Change Faculty Name");
+                            var newName = Console.ReadLine();
+                            Console.WriteLine("Change Dean Name");
+                            var newDeanName = Console.ReadLine();
+                            Console.WriteLine("Change Faculty Type");
+                            var newType = Console.ReadLine();
+                            if (!Enum.TryParse(newType, out FacultyType enType))
+                                Console.WriteLine("This type format is wrong");
+                            var facUpdate = new FacultyUpdateDto(selectedFaculty.Id, newName, newDeanName, enType, selectedFaculty.UniversityId);
+                            await facultyService.UpdateFaculty(selectedFaculty.Id, facUpdate);
+                            Console.WriteLine("Faculty successfully updated");
+                            break;
+                        case 5:
+                            var facDeletList = await facultyService.GetAllFacultiesAsync();
+                            if (facDeletList.Count == 0)
+                            {
+                                Console.WriteLine("No faculties found");
+                                break;
+                            }
+                            for (int i = 0; i < facDeletList.Count; i++)
+                            {
+                                Console.WriteLine($"{i + 1}-{facDeletList[i].Name}");
+                            }
+                            Console.WriteLine("Choose Faculty number for Delete");
+                            var entDel = Console.ReadLine();
+                            if (!int.TryParse(entDel, out var deletF))
+                            {
+                                Console.WriteLine("Invalid input");
+                                break;
+                            }
+                            if (deletF < 1 || deletF > facDeletList.Count)
+                            {
+                                Console.WriteLine("Out of range");
+                                break;
+                            }
+                            var DeletFaculty = facDeletList[deletF - 1];
+                            await facultyService.DeleteFacultyAsync(DeletFaculty.Id);
+                            Console.WriteLine("Faculty successfully deleted");
+                            break;
+                        default:
+                            Console.WriteLine("Invalid option");
+                            break;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error: {ex.Message}");
+                }
+            }
+        }
+    }
+}

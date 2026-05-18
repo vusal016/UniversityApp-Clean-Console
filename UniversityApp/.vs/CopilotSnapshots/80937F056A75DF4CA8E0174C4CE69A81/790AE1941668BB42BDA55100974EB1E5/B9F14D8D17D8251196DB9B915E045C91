@@ -1,0 +1,7 @@
+﻿namespace UniversityApp.UniversityUI.AppUI
+{
+    public class App(UniversityUI unuversityUI,FacultyUI facultyUI,StudentUI studentUI)
+    {
+
+    }
+}

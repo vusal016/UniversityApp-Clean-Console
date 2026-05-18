@@ -1,0 +1,55 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v9.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v9.0": {
+      "UniversityOrchestrationUI/1.0.0": {
+        "dependencies": {
+          "UniversityApp.BLL": "1.0.0"
+        },
+        "runtime": {
+          "UniversityOrchestrationUI.dll": {}
+        }
+      },
+      "UniversityApp.BLL/1.0.0": {
+        "dependencies": {
+          "UniversityApp.CORE": "1.0.0"
+        },
+        "runtime": {
+          "UniversityApp.BLL.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "UniversityApp.CORE/1.0.0": {
+        "runtime": {
+          "UniversityApp.CORE.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "UniversityOrchestrationUI/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "UniversityApp.BLL/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "UniversityApp.CORE/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

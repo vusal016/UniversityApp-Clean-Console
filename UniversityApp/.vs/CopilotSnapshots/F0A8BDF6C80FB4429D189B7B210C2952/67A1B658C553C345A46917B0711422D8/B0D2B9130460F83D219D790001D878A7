@@ -1,0 +1,258 @@
+﻿namespace UniversityOrchestrationUI.UniversityPresent
+{
+    public class StudentUI(IStudentService studentService, IFacultyService facultyService)
+    {
+        public async Task StudentMenuAsync()
+        {
+            while (true)
+            {
+                try
+                {
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.WriteLine("╔════════════════════════════════╗");
+                    Console.WriteLine("║      STUDENT MENU              ║");
+                    Console.WriteLine("╠════════════════════════════════╣");
+                    Console.WriteLine("║ 1-Add new Student              ║");
+                    Console.WriteLine("║ 2-Get Student by Id            ║");
+                    Console.WriteLine("║ 3-Get All Students             ║");
+                    Console.WriteLine("║ 4-Edit Student                 ║");
+                    Console.WriteLine("║ 5-Delete Student               ║");
+                    Console.WriteLine("║ 0-Back to Main Menu            ║");
+                    Console.WriteLine("╚════════════════════════════════╝");
+                    Console.ResetColor();
+
+                    int? input = int.TryParse(Console.ReadLine(), out var result) ? result : null;
+                    if (input == null)
+                        continue;
+                    if (input == 0) break;
+
+                    switch (input)
+                    {
+                        case 1:
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.WriteLine("Enter Student Full Name");
+                            Console.ResetColor();
+
+                            string fullName = Console.ReadLine();
+
+                            Console.WriteLine("Enter Age");
+                            if (!int.TryParse(Console.ReadLine(), out var age))
+                            {
+                                Console.WriteLine("Invalid age format");
+                                break;
+                            }
+
+                            Console.WriteLine("Enter Point");
+                            if (!int.TryParse(Console.ReadLine(), out var point))
+                            {
+                                Console.WriteLine("Invalid point format");
+                                break;
+                            }
+
+                            Console.WriteLine("Choose Faculty to add");
+                            var addFaculties = await facultyService.GetAllFacultiesAsync();
+
+                            if (addFaculties.Count == 0)
+                            {
+                                Console.WriteLine("No faculties found");
+                                break;
+                            }
+
+                            for (int i = 0; i < addFaculties.Count; i++)
+                            {
+                                Console.WriteLine($"{i + 1}-{addFaculties[i].Name}");
+                            }
+
+                            var addFacultyInput = Console.ReadLine();
+
+                            if (!int.TryParse(addFacultyInput, out var addFacultyIndex))
+                            {
+                                Console.WriteLine("Invalid input");
+                                break;
+                            }
+
+                            if (addFacultyIndex < 1 || addFacultyIndex > addFaculties.Count)
+                            {
+                                Console.WriteLine("Out of range");
+                                break;
+                            }
+
+                            var selectedAddFaculty = addFaculties[addFacultyIndex - 1];
+
+                            StudentCreateDto studentCreate = new StudentCreateDto(fullName, age, point, selectedAddFaculty.Id);
+
+                            await studentService.AddStudentAsync(studentCreate);
+
+                            Console.ForegroundColor = ConsoleColor.Green;
+                            Console.WriteLine("Student successfully added");
+                            Console.ResetColor();
+                            break;
+
+                        case 2:
+                            var getStudents = await studentService.GetAllStudents();
+
+                            if (getStudents.Count == 0)
+                            {
+                                Console.WriteLine("No students found");
+                                break;
+                            }
+
+                            for (int i = 0; i < getStudents.Count; i++)
+                            {
+                                Console.WriteLine($"{i + 1}-{getStudents[i].FullName}");
+                            }
+
+                            Console.WriteLine("Choose Student number to get");
+
+                            var getStudentInput = Console.ReadLine();
+
+                            if (!int.TryParse(getStudentInput, out var getStudentIndex))
+                            {
+                                Console.WriteLine("Invalid input");
+                                break;
+                            }
+
+                            if (getStudentIndex < 1 || getStudentIndex > getStudents.Count)
+                            {
+                                Console.WriteLine("Out of range");
+                                break;
+                            }
+
+                            var selectedGetStudent = getStudents[getStudentIndex - 1];
+
+                            var student = await studentService.GetStudentByIdAsunc(selectedGetStudent.Id);
+
+                            Console.ForegroundColor = ConsoleColor.Green;
+                            Console.WriteLine($"Full Name: {student.FullName}, Age: {student.Age}, Point: {student.Point}");
+                            Console.ResetColor();
+                            break;
+
+                        case 3:
+                            var studentList = await studentService.GetAllStudents();
+
+                            if (studentList.Count == 0)
+                            {
+                                Console.WriteLine("No students found");
+                                break;
+                            }
+
+                            for (int i = 0; i < studentList.Count; i++)
+                            {
+                                Console.WriteLine($"{i + 1}-Name: {studentList[i].FullName}, Age: {studentList[i].Age}, Point: {studentList[i].Point}");
+                            }
+                            break;
+
+                        case 4:
+                            var updateStudents = await studentService.GetAllStudents();
+
+                            if (updateStudents.Count == 0)
+                            {
+                                Console.WriteLine("No students found");
+                                break;
+                            }
+
+                            for (int i = 0; i < updateStudents.Count; i++)
+                            {
+                                Console.WriteLine($"{i + 1}-{updateStudents[i].FullName},{updateStudents[i].Age}");
+                            }
+
+                            Console.WriteLine("Choose Student number for Update");
+
+                            var updateStudentInput = Console.ReadLine();
+
+                            if (!int.TryParse(updateStudentInput, out var updateStd))
+                            {
+                                Console.WriteLine("Invalid input");
+                                break;
+                            }
+
+                            if (updateStd < 1 || updateStd > updateStudents.Count)
+                            {
+                                Console.WriteLine("Out of range");
+                                break;
+                            }
+
+                            var selectedUpdateStudent = updateStudents[updateStd - 1];
+
+                            Console.WriteLine($"{selectedUpdateStudent.FullName},{selectedUpdateStudent.Age}");
+
+                            Console.WriteLine("Change Student Full Name");
+                            var newFullName = Console.ReadLine();
+
+                            Console.WriteLine("Change Age");
+                            if (!int.TryParse(Console.ReadLine(), out var newAge))
+                            {
+                                Console.WriteLine("Invalid age format");
+                                break;
+                            }
+
+                            Console.WriteLine("Change Point");
+                            if (!int.TryParse(Console.ReadLine(), out var newPoint))
+                            {
+                                Console.WriteLine("Invalid point format");
+                                break;
+                            }
+
+                            var stdUpdate = new StudentUpdateDto(selectedUpdateStudent.Id, newFullName, newAge, newPoint, selectedUpdateStudent.FacultyId);
+
+                            await studentService.UpdateStudentAsync(selectedUpdateStudent.Id, stdUpdate);
+
+                            Console.ForegroundColor = ConsoleColor.Green;
+                            Console.WriteLine("Student successfully updated");
+                            Console.ResetColor();
+                            break;
+
+                        case 5:
+                            var deletStudents = await studentService.GetAllStudents();
+
+                            if (deletStudents.Count == 0)
+                            {
+                                Console.WriteLine("No students found");
+                                break;
+                            }
+
+                            for (int i = 0; i < deletStudents.Count; i++)
+                            {
+                                Console.WriteLine($"{i + 1}-{deletStudents[i].FullName}");
+                            }
+
+                            Console.WriteLine("Choose Student number for Delete");
+
+                            var deletStudentInput = Console.ReadLine();
+
+                            if (!int.TryParse(deletStudentInput, out var deletS))
+                            {
+                                Console.WriteLine("Invalid input");
+                                break;
+                            }
+
+                            if (deletS < 1 || deletS > deletStudents.Count)
+                            {
+                                Console.WriteLine("Out of range");
+                                break;
+                            }
+
+                            var selectedDeleteStudent = deletStudents[deletS - 1];
+
+                            await studentService.DeleteStudentAsync(selectedDeleteStudent.Id);
+
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("Student successfully deleted");
+                            Console.ResetColor();
+                            break;
+
+                        default:
+                            Console.WriteLine("Invalid option");
+                            break;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine($"Error: {ex.Message}");
+                    Console.ResetColor();
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,11 @@
+﻿namespace UniversityApp.UI.AppUI;
+
+using UniversityApp.UI;
+
+public class App(UniversityUI universityUI, FacultyUI facultyUI, StudentUI studentUI)
+{
+    public void Run()
+    {
+        // Main app logic here
+    }
+}
