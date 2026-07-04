@@ -246,8 +246,8 @@ dotnet run
 
 **Vusal Memmedov**
 
-📧 [mvusal316@gmail.com](mailto:mvusal316@gmail.com)
+📧Gmail: [mvusal316@gmail.com](mailto:mvusal316@gmail.com)
 
-🐙 [github.com/vusal016](https://github.com/vusal016)
+💼Linkedin: [linkedin.com/in/vusalmemmedov](https://linkedin.com/in/vusalmemmedov)
 
-💼 [linkedin.com/in/vusalmemmedov](https://linkedin.com/in/vusalmemmedov)
+🐙Github: [github.com/vusal016](https://github.com/vusal016)
