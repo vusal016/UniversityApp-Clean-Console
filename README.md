@@ -244,7 +244,7 @@ dotnet run
 
 ## 👤 Author
 
-Vusal Memmedov
-[mvusal316@gmail.com](mailto:mvusal316@gmail.com)
-Linkedin:[linkedin.com/in/vusalmemmedov](https://linkedin.com/in/vusalmemmedov)
-GitHub: vusal016
+**Vusal Memmedov**
+📧 mvusal316@gmail.com
+🐙 [github.com/vusal016](https://github.com/vusal016)
+💼 [linkedin.com/in/vusalmemmedov](https://linkedin.com/in/vusalmemmedov)
