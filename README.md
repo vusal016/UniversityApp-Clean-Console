@@ -246,4 +246,5 @@ dotnet run
 
 Vusal Memmedov
 [mvusal316@gmail.com](mailto:mvusal316@gmail.com)
+Linkedin:[linkedin.com/in/vusalmemmedov](https://linkedin.com/in/vusalmemmedov)
 GitHub: vusal016
